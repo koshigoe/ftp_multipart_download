@@ -18,9 +18,9 @@ Or install it yourself as:
 
 ## Usage
 
-```
-downloader = FtpMultipartDownload.new('localhost', username: 'user', password: 'password')
-downloader.download('/path/to/remotefile', '/path/to/localfile')
+```ruby
+downloader = FtpMultipartDownload::Downloader.new('localhost', username: 'user', password: 'password')
+downloader.download(3, '/path/to/remotefile', '/path/to/localfile')
 ```
 
 ## Development
