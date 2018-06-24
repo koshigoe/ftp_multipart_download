@@ -19,8 +19,9 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-downloader = FtpMultipartDownload::Downloader.new('localhost', username: 'user', password: 'password')
-downloader.download(3, '/path/to/remotefile', '/path/to/localfile')
+$ bin/console
+downloader = FtpMultipartDownload::Downloader.new('ftp.riken.go.jp', username: 'anonymous', debug_mode: true)
+downloader.download('/Linux/centos/7/isos/x86_64/CentOS-7-x86_64-NetInstall-1804.iso')
 ```
 
 ## Development
