@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  build: &build
+    docker:
+      - image: circleci/ruby:latest
+      - image: mcreations/ftp
+        environment:
+          - FTP_USER: user
+          - FTP_PASS: password
+          - HOST: localhost
+    working_directory: /home/circleci/app
+    steps:
+      - checkout
+      - run:
+          name: Install gems
+          command: bundle install
+      - run:
+          name: Rubocop
+          command: rubocop
+      - run:
+          name: YARDoc
+          command: yardoc --fail-on-warning lib
+      - run:
+          name: RSpec
+          command: rspec
+      # - store_artifacts:
+      #     path: coverage
+      #     destination: coverage
+  ruby-2.5:
+    <<: *build
+    docker:
+      - image: circleci/ruby:2.5
+
+workflows:
+  version: 2
+  build-using-multi-rubies:
+    jobs:
+      - ruby-2.5
