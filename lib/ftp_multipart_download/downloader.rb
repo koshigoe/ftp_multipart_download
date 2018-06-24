@@ -7,7 +7,7 @@ module FtpMultipartDownload
     # @param [String] host Host name.
     # @param [Hash, String] user_or_options username or option as Hash.
     # @param [String] passwd password
-    # @param [String] Account information for ACCT.
+    # @param [String] acct Account information for ACCT.
     #
     def initialize(host = nil, user_or_options = {}, passwd = nil, acct = nil)
       @argv = [host, user_or_options, passwd, acct]
