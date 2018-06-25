@@ -1,13 +1,17 @@
 version: 2
+references:
+  docker:
+    - &ftp-image
+      image: mcreations/ftp
+      environment:
+        - FTP_USER: user
+        - FTP_PASS: password
+        - HOST: localhost
 jobs:
   build: &build
     docker:
       - image: circleci/ruby:latest
-      - image: mcreations/ftp
-        environment:
-          - FTP_USER: user
-          - FTP_PASS: password
-          - HOST: localhost
+      - *ftp-image
     working_directory: /home/circleci/app
     steps:
       - checkout
@@ -30,6 +34,7 @@ jobs:
     <<: *build
     docker:
       - image: circleci/ruby:2.5
+      - *ftp-image
 
 workflows:
   version: 2
