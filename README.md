@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/koshigoe/ftp_multipart_download/tree/master.svg?style=svg)](https://circleci.com/gh/koshigoe/ftp_multipart_download/tree/master)
+[![codecov](https://codecov.io/gh/koshigoe/ftp_multipart_download/branch/master/graph/badge.svg)](https://codecov.io/gh/koshigoe/ftp_multipart_download)
 
 # FtpMultipartDownload
 
