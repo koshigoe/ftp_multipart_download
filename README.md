@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/koshigoe/ftp_multipart_download/tree/master.svg?style=svg)](https://circleci.com/gh/koshigoe/ftp_multipart_download/tree/master)
+
 # FtpMultipartDownload
 
 ## Installation
