@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe FtpMultipartDownload::ConnectionPool, type: :lib do
@@ -13,7 +15,8 @@ RSpec.describe FtpMultipartDownload::ConnectionPool, type: :lib do
         )
         aggregate_failures do
           expect(pool.count).to eq 3
-          expect(pool).to all(be_a(Net::FTP).and satisfy { |c| !c.closed? })
+          expect(pool).to all be_a(Net::FTP)
+          expect(pool).to all(satisfy { |c| !c.closed? })
           expect(pool.errors).to be_empty
         end
       end

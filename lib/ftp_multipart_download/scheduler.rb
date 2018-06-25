@@ -1,7 +1,13 @@
+# frozen_string_literal: true
+
 require 'thwait'
 require 'tmpdir'
 
 module FtpMultipartDownload
+  # An internal implementation to download a file by concurrent multipart.
+  #
+  # NOTE: This class create some Threads.
+  #
   class Scheduler
     attr_reader :connection_pool
 

@@ -1,4 +1,11 @@
+# frozen_string_literal: true
+
 module FtpMultipartDownload
+  # Use to download a part of file.
+  #
+  # @example
+  #   FtpMultipartDownload::Part.new(Net::FTP.new('localhost')).download('/file')
+  #
   class Part
     attr_reader :connection
 

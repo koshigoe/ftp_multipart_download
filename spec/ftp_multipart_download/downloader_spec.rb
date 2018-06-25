@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'tempfile'
 
@@ -14,8 +16,8 @@ RSpec.describe FtpMultipartDownload::Downloader, type: :lib do
         end
 
         Tempfile.create('rspec') do |temp|
-          described_class.new('localhost', username: 'user', password: 'password')
-            .download(3, '/rspec', temp.path, FtpMultipartDownload::DEFAULT_BLOCKSIZE)
+          downloader = described_class.new('localhost', username: 'user', password: 'password')
+          downloader.download(3, '/rspec', temp.path, FtpMultipartDownload::DEFAULT_BLOCKSIZE)
           temp.rewind
           expect(temp.read).to eq 'abcdefghijklmnopqrstuvwxyz'
         end

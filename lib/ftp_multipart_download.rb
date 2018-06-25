@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ftp_multipart_download/version'
 require 'ftp_multipart_download/connection_pool'
 require 'ftp_multipart_download/downloader'
@@ -7,6 +9,8 @@ require 'net/ftp'
 
 module FtpMultipartDownload
   class Error < StandardError; end
+
+  # Exception class to indicate no established connection.
   class ConnectionError < Error
     attr_reader :errors
 

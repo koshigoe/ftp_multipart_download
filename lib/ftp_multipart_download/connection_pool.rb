@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 require 'net/ftp'
 
 module FtpMultipartDownload
+  # An internal implementation to pool FTP connections.
+  #
   class ConnectionPool
     attr_reader :errors
 

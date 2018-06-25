@@ -1,4 +1,11 @@
+# frozen_string_literal: true
+
 module FtpMultipartDownload
+  # Use to download a file by concurrent multipart.
+  #
+  # @example
+  #   FtpMultipartDownload::Downloader.new('localhost').download(3, '/file')
+  #
   class Downloader
     attr_reader :argv
 
@@ -23,7 +30,7 @@ module FtpMultipartDownload
     #
     def download(concurrent, remotefile, localfile = File.basename(remotefile), blocksize = DEFAULT_BLOCKSIZE)
       connection_pool = ConnectionPool.new(concurrent, *argv)
-      if connection_pool.count == 0
+      if connection_pool.count.zero?
         raise ConnectionError.new('Could not establish any connection.', errors: connection_pool.errors)
       end
 
